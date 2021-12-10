@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Myfair</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Lato|Nanum+Gothic:700|Raleway&display=swap" rel="stylesheet">
+
+
+</head>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=poppins:wght@100;300;400;500;600;&display=swap');
+
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'poppins', sans-serif;
+	}
+
+	
+	.header{
+	top: 0; left: 0; right: 0;
+	background: #fff;
+	padding: 3rem 9%;
+	z-index: 999;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+}
+
+	.logo{
+		width: 140px;
+		cursor: pointer;
+	}
+
+	.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #d6bd70;
+  display: block;
+  transition: 0.3s;
+  padding: 20px;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+  letter-spacing: .3rem;
+}
+
+.overlay .closebtn {
+  position: absolute;
+   font-size: 45px;
+   right: 12px;
+   color: #d6bd70;
+}
+ 
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  right: 35px;
+  }
+
+  .logo{
+		position: fixed;
+		top: .1%;
+		left: 7%;
+		width: 102px;
+	}
+	
+}
+
+
+
+.container{
+	padding: 0 7%;
+}
+
+.header h1{
+	font-size: 5vw;
+	font-weight: 500;
+	color: #fff;
+	text-align: center;
+	padding-top: 22%;
+}
+
+.search-bar{
+	background: #fff;
+	width: 70%;
+	margin: 30px auto;
+	padding: 6px 10px 6px 30px;
+	border-radius: 50px;
+}
+
+.search-bar form{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	
+}
+
+.search-bar form input{
+    display: block;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+.search-bar form button{
+	background: #d6bd70;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	border: 0;
+	outline: none;
+	cursor: pointer;
+}
+.search-bar form button img{
+	width: 15px;
+	margin-top: 7px;
+}
+
+.location-input{
+	flex: 1;
+}
+
+
+.search-bar form label{
+	font-weight: 500;
+}
+
+
+/*-------------------exclusives------------------*/
+.sub-title{
+	margin: 50px 0 20px;
+	font-size: 2.2vw;
+	font-weight: 500;
+	color: #130f40;
+}
+
+
+.exclusives{
+  display: grid;
+  grid-template-columns: repeat(auto-fit , minmax(200px, 1fr));
+  grid-gap: 30px;
+}
+
+
+.exclusives div img{
+	width: 100%;
+	height: 80%;
+	border-radius: 10px;
+}
+
+.exclusives div {
+	position: relative;
+}
+
+
+.exclusives div span{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	color: #130f40;
+}
+
+.trending{
+  display: grid;
+  grid-template-columns: repeat(auto-fit , minmax(200px, 1fr));
+  grid-gap: 30px;
+  margin-bottom: 30px;
+}
+
+.trending  div img{
+	width: 100%;
+	border-radius: 10px;
+}
+
+.trending h3{
+	font-weight: 600;
+	margin-top: 10px;
+	color: #130f40;
+}
+
+
+.cta{
+	margin: 80px 0;
+	background-image: linear-gradient(to right, #3f2321,transparent),url(download.jpg);
+	background-size: cover;
+	background-position: center;
+	border-radius: 10px;
+	padding: 5%;
+	color: #130f40;
+}
+
+
+.cta h3{
+	font-size: 4vw;
+	line-height: 5.3vw;
+	font-weight: 500;
+}
+
+.cta p{
+	font-size: 16px;
+	margin: 10px 0;
+	
+}
+
+
+.cta-btn{
+	background: #d6bd70;
+	color: #130f40;
+	text-decoration: none;
+	padding: 12px 30px;
+	border-radius: 8px;
+	margin-top: 20px;
+	display: inline-block;
+}
+
+.stories{
+	display: grid;
+  grid-template-columns: repeat(auto-fit , minmax(200px, 1fr));
+  grid-gap: 30px;
+  margin-bottom: 30px;
+}
+
+.stories div img{
+	width: 100%;
+	border-radius: 10px;
+}
+
+.stories div{
+	position: relative;
+	text-align: center;
+}
+
+.stories p{
+	width: 80%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	font-size: 19px;
+}
+
+.start-btn{
+	text-decoration: none;
+	background: #d6bd70;
+	color: #fff;
+	width: 80%;
+	max-width: 350px;
+	display: block;
+	text-align: center;
+	margin: 60px auto;
+	padding: 15px;
+	border-radius: 30px;
+	font-size: 20px;
+}
+
+.about-smg {
+	text-align: center;
+	margin: 80px 0;
+	color: #333;
+	font-size: 17px;
+}
+
+
+.about-smg  h2{
+	font-size: 28px;
+	margin-bottom: 30px;
+	font-weight: 500;
+}
+
+
+.footer{
+	margin: 80px 0 10px;
+	text-align: center;
+}
+
+.footer a{
+	text-decoration: none;
+	color: #999;
+	font-size: 22px;
+	margin: 0 10px;
+}
+
+.footer hr{
+	background: #999;
+	height: 1px;
+	width: 100%;
+	border: 0;
+	margin: 20px 0;
+}
+
+.footer p{
+	padding-bottom: 15px;
+
+}
+
+
+
+
+
+
+
+
+.active{
+	position: relative;
+}
+
+.active::after{
+	content: "";
+	background: #d6bd70;
+	width:25px;
+	height: 2px;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+	bottom: -12px;
+	border-radius: 2px;
+
+}
+
+
+
+
+@media screen and (max-width: 770px){
+
+	.header{
+		padding: 2rem;
+	}
+	.header .active{
+	padding: 2rem;
+}
+	
+
+
+
+    .header h1{
+    	padding-top: 200px;
+    	font-size: 7vw;
+    }
+
+    .search-bar{
+    	width: 90%;
+    	margin: 30px auto;
+    	padding: 20px 10px 30px;
+    	border-radius: 5px;
+    	position: relative;
+    }
+
+    .search-bar form{
+    	display: block;
+    }
+
+    .search-bar form input {
+         border-bottom: 1px solid #000;
+         width: 100%;
+         margin-bottom: 20px;
+         margin-top: 10px;
+         padding-bottom: 10px;
+    }
+
+    .search-bar form button{
+    	position: absolute;
+    	bottom: 0;
+    	left: 50%;
+    	transform: translate(-50% 50%);
+    }
+
+    .sub-title{
+    	font-size: 6vw;
+    }
+
+
+    .cta{
+    	padding: 15% 5%;
+
+    }
+     .cta{
+     	font-size: 7vw;
+     	line-height: 8vw;
+     }
+
+     .cta p{
+     	font-size: 14px;
+     }
+
+     .cta-btn{
+     	padding: 6px 15px;
+     	border-radius: 4px;
+     	margin-top: 10px;
+     	font-size: 14px;
+     }
+
+
+}
+
+
+
+
+
+
+
+
+
+</style>
+<body>
+<header class="header">
+		<img src="qq.png" class="logo">
+		<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  
+
+  <div class="overlay-content">
+ <a href="#">Popular Places</a>
+ <a href="#jewels">Travel Outside </a>
+ <a href="#services">Online  Packages</a>
+  </div>
+</div>
+  
+<span style="font-size:30px;cursor:pointer; color:#d6bd70" onclick="openNav()">&#9776; 
+</span>
+
+</header>
+	<br>
+	<br>
+	<br>
+	<br><br>
+	<br>
+	<br>
+	<br>
+<div class="container">
+	<h2 class="sub-title">Exclusives</h2>
+	<div class="exclusives">
+		<div>
+		   <img src="images2.jpg">
+		   <span>
+		   	<h3>London</h3>
+		   	<p>starts @ Tshs3000</p>
+		   </span>
+		</div>
+		<div>
+		   <img src="images6.jpg">
+		    <span>
+		   	<h3>London</h3>
+		   	<p>starts @ Tshs3000</p>
+		   </span>
+		</div>
+		<div>
+		   <img src="images3.jpg">
+		    <span>
+		   	<h3>London</h3>
+		   	<p>starts @ Tshs3000</p>
+		   </span>
+		</div>
+		<div>
+		   <img src="images2.jpg">
+		    <span>
+		   	<h3>London</h3>
+		   	<p>starts @ Tshs3000</p>
+		   </span>
+		</div>
+		<div>
+		   <img src="images6.jpg">
+		    <span>
+		   	<h3>London</h3>
+		   	<p>starts @ Tshs3000</p>
+		   </span>
+		</div>
+		<div>
+		   <img src="images5.jpg">
+		    <span>
+		   	<h3>London</h3>
+		   	<p>starts @ Tshs3000</p>
+		   </span>
+		</div>
+		<div>
+		   <img src="images3.jpg">
+		    <span>
+		   	<h3>London</h3>
+		   	<p>starts @ Tshs3000</p>
+		   </span>
+		</div>
+		<div>
+		   <img src="images2.jpg">
+		    <span>
+		   	<h3>London</h3>
+		   	<p>starts @ Tshs3000</p>
+		   </span>
+		</div>
+		<div>
+		   <img src="images5.jpg">
+		    <span>
+		   	<h3>Newyork</h3>
+		   	<p>starts @ Tshs3000</p>
+		   </span>
+		</div>
+		<div>
+		   <img src="images.jpg">
+		    <span>
+		   	<h3>Shangai</h3>
+		   	<p>starts @ Tshs3000</p>
+		   </span>
+		</div>
+	</div>
+	<h2 class="sub-title">Trending Places</h2>
+	<div class="trending">
+		<div>
+		   <img src="images6.jpg">
+		    <span>
+		   	<h3>Dubai</h3>
+		   </span>
+		</div>
+		<div>
+		   <img src="images6.jpg">
+		    <span>
+		   	<h3>New York</h3>
+		   </span>
+		</div>
+		<div>
+		   <img src="images6.jpg">
+		    <span>
+		   	<h3>Paris</h3>
+		   </span>
+		</div>
+		<div>
+		   <img src="images6.jpg">
+		    <span>
+		   	<h3>New Delhi</h3>
+		   </span>
+		</div>
+		
+	</div>
+	<div class="cta">
+		<h3>Sharing <br> Is Earning Now</h3>
+		<p>Great opportunity to make money by <br>sharing your extra space.</p>
+		<a href="#" class="cta-btn">Know More</a>
+	</div>
+
+	<h2 class="sub-title">Travellers Stories</h2>
+
+	<div class="stories">
+		<div>
+			<img src="images4.jpg">
+			<p>Popular countries with a budjet of just 100k</p>
+		</div>
+		<div>
+			<img src="images1.jpg">
+			<p>best experience you get while traveling to thailand</p>
+		</div>
+		<div>
+			<img src="images1.jpg">
+			<p>traveled more than 100 countries in less than a year</p>
+		</div>
+		<div>
+			<img src="images4.jpg">
+			<p>Great opportunity to make money</p>
+		</div>
+	</div>
+	<a href="#" class="start-btn">Start making money</a>
+
+<div class="about-smg">
+	<h2 class="sub-title">About Upendomyfair</h2>
+	<p>Great opportunity to make money by sharing your extra space Great opportunity to make money by sharing your extra space Great opportunity to make money by sharing your extra space Great opportunity to make money by sharing your extra space Great opportunity to make money by sharing your extra space Great opportunity to make money by sharing your extra space Great opportunity to make money by sharing your extra space Great opportunity to make money by sharing your extra space Great opportunity to make money by sharing your extra space.</p>
+</div>
+<div class="footer">
+	<a href="#"><i class="fa fa-facebook-f"></i></a>
+			<a href="#"><i class="fa fa-twitter"></i></a>
+			<a href="#"><i class="fa fa-linkedin"></i></a>
+			<a href="#"><i class="fa fa-instagram"></i></a>
+			<a href="#"><i  class="fa fa-pinterest"></i></a>
+			<hr>
+			<p>copyright  2022, UpendoMyfair</p>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://use.fontawesome.com/1744f3f671.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+
+
+function openNav() {
+  document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.height = "0%";
+}
+
+</script>
+	
+
+</body>
+</html>
